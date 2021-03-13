@@ -1,10 +1,10 @@
 import {join} from 'path';
-import Pino, {logger} from './Pino';
+import {logger, initLogger} from './Pino';
 
-describe('Infrastructure->Logger->Pino.ts', () => {
-  test('Esperado inicialização do logger', async () => {
+describe('Logger/Pino', () => {
+  test('initLogger()', async () => {
     expect(logger).toBeUndefined();
-    await Pino();
+    await initLogger();
     const {dependencies} = require(join(process.cwd(), 'package.json'));
     expect(logger).not.toBeUndefined();
     expect(logger.version).toBe(dependencies.pino.substring(1));

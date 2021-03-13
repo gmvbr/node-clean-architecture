@@ -1,9 +1,9 @@
-import Pino, {logger} from './Infrastructure/Logger/Pino';
+import {logger, initLogger} from './Infrastructure/Logger/Pino';
 import {WebServer} from './Infrastructure/Web/Server';
 
 async function main() {
   try {
-    await Pino();
+    await initLogger();
     const server = new WebServer(logger);
     await server.listen();
   } catch (e) {

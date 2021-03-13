@@ -1,6 +1,6 @@
 import {ArgonAdapter} from './ArgonAdapter';
 
-describe('Infrastructure/Crypto/ArgonAdapter', () => {
+describe('Crypto/ArgonAdapter', () => {
   test('test hash()', async () => {
     const adapter = new ArgonAdapter();
 

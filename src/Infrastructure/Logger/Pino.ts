@@ -2,12 +2,9 @@ import pino from 'pino';
 
 export let logger: pino.Logger;
 
-/**
- * Inicializa o logger
- */
-export default async () => {
+export async function initLogger() {
   logger = pino({
     prettyPrint: {},
     prettifier: require('pino-colada'),
   });
-};
+}
