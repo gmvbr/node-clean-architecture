@@ -1,21 +1,12 @@
 import {hash, verify} from 'argon2';
-import {SecretKeyHash} from '../../Data';
+import {SecretProtocol} from '../../Application';
 
-/**
- * Adaptador SecretKeyHash
- */
-export class ArgonAdapter implements SecretKeyHash {
-  /**
-   * [SecretKeyHash.hash]
-   */
+export class ArgonAdapter implements SecretProtocol {
   public async hash(password: string): Promise<string> {
     const result = await hash(password);
     return result;
   }
 
-  /**
-   * [SecretKeyHash.verify]
-   */
   public async verify(password: string, hash: string): Promise<boolean> {
     const result = await verify(hash, password);
     return result;
